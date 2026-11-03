@@ -8,7 +8,7 @@ import { CountUp } from "@/components/reactbits/CountUp";
  */
 export function SignalLog() {
   return (
-    <Section chapter="06" eyebrow={chapters["06"].eyebrow}>
+    <Section chapter="05" eyebrow={chapters["05"].eyebrow}>
       {/* Stats row with animated CountUp */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-20 md:mb-28">
         {stats.map((stat) => (
@@ -31,7 +31,7 @@ export function SignalLog() {
         className="font-display mb-12"
         style={{ fontSize: "var(--text-h2)" }}
       >
-        {chapters["04"].title}
+        {chapters["05"].title}
       </h2>
 
       <div className="flex flex-col">
@@ -51,6 +51,18 @@ export function SignalLog() {
               </div>
               <div className="col-span-12 md:col-span-6 mt-2 md:mt-0">
                 <p className="text-text-muted leading-relaxed">{entry.description}</p>
+                {entry.skills && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {entry.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-2.5 py-0.5 rounded-full border border-black/10 bg-white font-mono text-[10px] text-[#5b5b5b] uppercase tracking-wider"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>

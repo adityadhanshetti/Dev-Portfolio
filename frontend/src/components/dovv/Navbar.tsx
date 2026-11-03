@@ -51,15 +51,15 @@ export function Navbar() {
                       items={[
                           { label: "Home", link: "#" },
                           { label: "Selected Work", link: "#work" },
+                          { label: "Skills", link: "#skills" },
                           { label: "About Aditya", link: "#about" },
-                          { label: "Sonic Deck", link: "#music" },
                           { label: "Get In Touch", link: "#contact" },
                       ]}
                       socialItems={[
-                          { label: "GitHub", link: "https://github.com" },
-                          { label: "LinkedIn", link: "https://linkedin.com" },
-                          { label: "Twitter / X", link: "https://twitter.com" },
-                          { label: "Spotify", link: "https://spotify.com" },
+                          { label: "GitHub", link: "https://github.com/adityadhanshetti" },
+                          { label: "LinkedIn", link: "https://in.linkedin.com/in/aditya-dhanshetti" },
+                          { label: "Twitter / X", link: "https://x.com/adityadhanshetti" },
+                          { label: "Email", link: "mailto:connect.adityadhanshetti@gmail.com" },
                       ]}
                       onItemClick={(item) => {
                           const targetId = item.link.replace("#", "");

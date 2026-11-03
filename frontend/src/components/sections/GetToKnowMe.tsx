@@ -93,9 +93,9 @@ export function GetToKnowMe() {
             baseOpacity={0.12}
             highlightColor="#ed4a1c"
             duration={0.25}
-            textClassName="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.85rem] font-bold text-[#05080c] leading-[1.32] tracking-tight"
+            textClassName="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-[#05080c] leading-[1.34] tracking-tight"
           >
-            I'm Aditya, the developer and systems architect behind these digital experiences. I design and build web applications from the first sketch to the last line of code, so strategy, user experience, and robust architecture stay in the same hands and nothing gets lost along the way.
+            I'm Aditya, a Software Engineer and Product Builder with deep hands-on expertise in backend engineering, scalable APIs, system design, and GenAI. Currently Technical Lead at Sentinel Layer architecting sub-150ms real-time security pipelines and SDE Intern at AppOrb engineering B2B microservices. I turn complex requirements into robust, high-performance software.
           </ScrollReveal>
         </div>
       </div>

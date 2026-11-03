@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { HolographicSticker } from "@/components/dovv/HolographicSticker";
 import VariableProximity from "@/components/reactbits/VariableProximity";
+import { Aurora } from "@/components/reactbits/Aurora";
 import { usePreloader } from "@/lib/preloader-context";
 
 /**
@@ -16,7 +17,7 @@ export function Hero() {
     if (phase === "revealing" || phase === "done") {
       setIsRevealed(true);
     }
-    const timer = setTimeout(() => setIsRevealed(true), 1200);
+    const timer = setTimeout(() => setIsRevealed(true), 4500);
     return () => clearTimeout(timer);
   }, [phase]);
 
@@ -25,23 +26,25 @@ export function Hero() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const techList = [
-    "REACT",
-    "TYPESCRIPT",
-    "NODE.JS",
-    "SYSTEM DESIGN",
-    "TAILWIND CSS",
-    "GSAP & MOTION",
-    "SECURITY ARCHITECTURE",
-    "DISTRIBUTED RUNTIMES",
-    "NEXT.JS",
-    "REST & GRAPHQL",
-  ];
-
   return (
     <section className="relative min-h-[96vh] flex flex-col justify-between pt-32 pb-12 overflow-hidden bg-[#f5f5f5]">
-      {/* Subtle warm ambient radial blur */}
-      <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-br from-[#ed4a1c]/8 via-[#c6f432]/6 to-transparent blur-[120px] opacity-70" />
+      {/* React Bits Aurora — Fluid Kinetic Ambient Light Wave Background */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden opacity-90">
+        <Aurora
+          colorStops={["#ed4a1c", "#ff8a4c", "#c6f432", "#ed4a1c"]}
+          amplitude={1.2}
+          blend={0.85}
+          speed={0.7}
+          height={0.5}
+          glow={0.8}
+          brightness={1.2}
+          opacity={0.85}
+          mouseInteraction={true}
+        />
+      </div>
+
+      {/* Subtle feather fade strictly at the bottom border to blend with the marquee */}
+      <div className="pointer-events-none absolute bottom-0 inset-x-0 h-24 z-0 bg-gradient-to-t from-[#f5f5f5] to-transparent" />
 
       {/* Main Center Content */}
       <div className="relative z-10 mx-auto max-w-6xl w-full px-4 sm:px-8 flex flex-col items-center text-center my-auto">
@@ -70,9 +73,9 @@ export function Hero() {
               isRevealed ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-50 -translate-y-8"
             }`}
           >
-            <HolographicSticker rotation={-9} variant="flame">
+            {/* <HolographicSticker rotation={-9} variant="flame">
               Framer expert
-            </HolographicSticker>
+            </HolographicSticker> */}
           </div>
 
           {/* Floating Sticker 2 (Bottom Left — 4.9 Starburst Badge Overlapping 'THAT') */}
@@ -81,10 +84,10 @@ export function Hero() {
               isRevealed ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-50 translate-y-8"
             }`}
           >
-            <HolographicSticker rotation={-3} variant="lime" shape="star">
+            {/* <HolographicSticker rotation={-3} variant="lime" shape="star">
               <span className="text-base font-black leading-none">4.9</span>
               <span className="text-[10px] tracking-tight leading-none mt-0.5">★★★★★</span>
-            </HolographicSticker>
+            </HolographicSticker> */}
           </div>
 
           {/* Floating Sticker 3 (Bottom Right — Pink Pill Overlapping 'PEOPLE') */}
@@ -93,9 +96,9 @@ export function Hero() {
               isRevealed ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-50 translate-y-8"
             }`}
           >
-            <HolographicSticker rotation={8} variant="pink">
+            {/* <HolographicSticker rotation={8} variant="pink">
               Made in Argentina
-            </HolographicSticker>
+            </HolographicSticker> */}
           </div>
 
           {/* Line 1: WE BUILD SITES */}
@@ -140,14 +143,14 @@ export function Hero() {
         </div>
 
         {/* 3. DOVV Studio Subtext */}
-        <div className="overflow-hidden mt-6 max-w-xl">
+        <div className="overflow-hidden mt-6 max-w-2xl">
           <p
             className={`font-body text-sm sm:text-base md:text-lg text-[#5b5b5b] leading-relaxed transition-all duration-1000 delay-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               isRevealed ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            Independent studio designing and building fast, high-converting
-            websites in Framer for startups, creators and brands.
+            An Engineer specializing in Backend Engineering,
+            Scalable APIs, System Design, and GenAI. Technical Lead @Sentinel Layer Pvt. Ltd & SDE Intern @AppOrbits.
           </p>
         </div>
 
@@ -170,28 +173,6 @@ export function Hero() {
           >
             See our work
           </button>
-        </div>
-      </div>
-
-      {/* 5. Trusted By / Tech Stack Marquee Ribbon (DOVV Studio style) */}
-      <div className="relative w-full mt-16 flex flex-col items-center">
-        <div className="flex items-center gap-4 w-full max-w-5xl px-6 mb-4">
-          <div className="h-px bg-black/10 flex-1" />
-          <span className="font-mono text-[11px] text-[#5b5b5b] uppercase tracking-widest font-medium">
-            Skills
-          </span>
-          <div className="h-px bg-black/10 flex-1" />
-        </div>
-
-        <div className="w-full border-y border-black/8 bg-white py-4 overflow-hidden shadow-xs">
-          <div className="flex w-max animate-[marquee_25s_linear_infinite] gap-10 select-none">
-            {[...techList, ...techList].map((tech, i) => (
-              <div key={i} className="flex items-center gap-10 font-mono text-xs text-[#5b5b5b] tracking-widest uppercase">
-                <span className="hover:text-[#ed4a1c] transition-colors font-medium">{tech}</span>
-                <span className="text-[#ed4a1c]">✦</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
